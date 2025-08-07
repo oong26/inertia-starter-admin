@@ -26,6 +26,7 @@ createInertiaApp({
         const app = createApp({ render: () => h(App, props) })
         app.use(plugin)
         app.use(pinia) // Register Pinia here
+        app.use(ZiggyVue)
         app.mount(el)
         // return createApp({ render: () => h(App, props) })
         //     .use(plugin)

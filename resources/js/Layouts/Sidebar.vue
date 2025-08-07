@@ -1,23 +1,24 @@
 <script setup>
-import NavItem from './NavItem.vue';
-import {RectangleGroupIcon, NewspaperIcon, PhotoIcon} from "@heroicons/vue/24/outline";
+import NavItem from './Components/NavItem.vue';
+import {RectangleGroupIcon, CalendarIcon, NewspaperIcon, PhotoIcon} from "@heroicons/vue/24/outline";
 import { inject } from 'vue';
 
 const navItems = [
-    { href: "#", label: "Dashboard", children: [], icon: RectangleGroupIcon },
+    { href: route('dashboard'), routeName: 'dashboard', label: "Dashboard", children: [], icon: RectangleGroupIcon },
+    { href: route('calendar'), routeName: 'calendar', label: "Calendar", children: [], icon: CalendarIcon },
     {
-        href: "#", label: "Posts", children: [
-            { href: "#", label: "All posts", children: [], icon: null },
-            { href: "#", label: "Add new", children: [], icon: null },
-            { href: "#", label: "Categories", children: [], icon: null },
+        href: "#", routeName: null, label: "Posts", children: [
+            { href: "#", routeName: null, label: "All posts", children: [], icon: null },
+            { href: "#", routeName: null, label: "Add new", children: [], icon: null },
+            { href: "#", routeName: null, label: "Categories", children: [], icon: null },
         ], icon: NewspaperIcon
     },
     {
-        href: "#", label: "Media", children: [
-            { href: "#", label: "Library", children: [], icon: null },
+        href: "#", routeName: null, label: "Media", children: [
+            { href: "#", routeName: null, label: "Library", children: [], icon: null },
             {
-                href: "#", label: "Add new", children: [
-                    { href: "#", label: "Third level", children: [], icon: null },
+                href: "#", routeName: null, label: "Add new", children: [
+                    { href: "#", routeName: null, label: "Third level", children: [], icon: null },
                 ], icon: null
             },
         ], icon: PhotoIcon
@@ -59,7 +60,8 @@ const isSidebarCollapsed = inject('isSidebarCollapsed');
                             :item="item"
                             :is-collapsed="isSidebarCollapsed"
                             v-for="item in navItems"
-                            :key="item.label" />
+                            :key="item.label"
+                            :active="route().current(item.routeName)" />
                     </div>
                 </div>
             </nav>

@@ -15,7 +15,24 @@ export default {
             fontFamily: {
                 sans: ['Outfit, sans-serif'],
             },
+            screens: {
+                '2xsm': '360px', // or whatever width you want
+            },
+            zIndex: Object.fromEntries(
+                Array.from({ length: 100000 }, (_, i) => [i + 1, `${i + 1}`])
+            ),
             colors: {
+                brand: {
+                    50: '#ecf3ff',
+                    100: '#dde9ff',
+                    200: '#c2d6ff',
+                    300: '#9cb9ff',
+                    400: '#7592ff',
+                    500: '#465fff',
+                    600: '#3641f5',
+                    800: '#252dae',
+                    950: '#161950',
+                },
                 success: {
                     DEFAULT: '#039855',
                     50: '#e6f4eb',
