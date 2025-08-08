@@ -94,6 +94,7 @@ import { ArrowDownIcon, ArrowUpIcon } from '@heroicons/vue/24/solid';
                 <ArrowDownIcon class="w-5 text-error" />
             </p>
         </div>
+        <div class="w-px bg-gray-200 h-7 dark:bg-gray-800"></div>
         <div>
             <p class="mb-1 text-center text-gray-500 text-theme-xs dark:text-gray-400 sm:text-sm">Revenue</p>
             <p class="flex items-center justify-center gap-1 text-base font-semibold text-gray-800 dark:text-white/90 sm:text-lg">
@@ -101,6 +102,7 @@ import { ArrowDownIcon, ArrowUpIcon } from '@heroicons/vue/24/solid';
                 <ArrowUpIcon class="w-5 text-success" />
             </p>
         </div>
+        <div class="w-px bg-gray-200 h-7 dark:bg-gray-800"></div>
         <div>
             <p class="mb-1 text-center text-gray-500 text-theme-xs dark:text-gray-400 sm:text-sm">Today</p>
             <p class="flex items-center justify-center gap-1 text-base font-semibold text-gray-800 dark:text-white/90 sm:text-lg">

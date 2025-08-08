@@ -1,11 +1,12 @@
 <script setup>
 import NavItem from './Components/NavItem.vue';
-import {RectangleGroupIcon, CalendarIcon, NewspaperIcon, PhotoIcon} from "@heroicons/vue/24/outline";
+import {RectangleGroupIcon, CalendarIcon, NewspaperIcon, PhotoIcon, UserCircleIcon} from "@heroicons/vue/24/outline";
 import { inject } from 'vue';
 
 const navItems = [
     { href: route('dashboard'), routeName: 'dashboard', label: "Dashboard", children: [], icon: RectangleGroupIcon },
     { href: route('calendar'), routeName: 'calendar', label: "Calendar", children: [], icon: CalendarIcon },
+    { href: route('user-profile'), routeName: 'user-profile', label: "User Profile", children: [], icon: UserCircleIcon },
     {
         href: "#", routeName: null, label: "Posts", children: [
             { href: "#", routeName: null, label: "All posts", children: [], icon: null },
