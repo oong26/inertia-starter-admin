@@ -1,6 +1,6 @@
 <script setup>
 import NavItem from './Components/NavItem.vue';
-import {RectangleGroupIcon, CalendarIcon, NewspaperIcon, PhotoIcon, UserCircleIcon} from "@heroicons/vue/24/outline";
+import {RectangleGroupIcon, CalendarIcon, DocumentTextIcon, PhotoIcon, UserCircleIcon} from "@heroicons/vue/24/outline";
 import { inject } from 'vue';
 
 const navItems = [
@@ -8,11 +8,10 @@ const navItems = [
     { href: route('calendar'), routeName: 'calendar', label: "Calendar", children: [], icon: CalendarIcon },
     { href: route('user-profile'), routeName: 'user-profile', label: "User Profile", children: [], icon: UserCircleIcon },
     {
-        href: "#", routeName: null, label: "Posts", children: [
-            { href: "#", routeName: null, label: "All posts", children: [], icon: null },
-            { href: "#", routeName: null, label: "Add new", children: [], icon: null },
-            { href: "#", routeName: null, label: "Categories", children: [], icon: null },
-        ], icon: NewspaperIcon
+        href: "#", routeName: 'form.', label: "Forms", children: [
+            { href: route('form.elements'), routeName: 'form.elements', label: "Form Elements", children: [], icon: null },
+            { href: route('form.layout'), routeName: 'form.layout', label: "Form Layout", children: [], icon: null },
+        ], icon: DocumentTextIcon
     },
     {
         href: "#", routeName: null, label: "Media", children: [

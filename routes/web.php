@@ -14,22 +14,35 @@ Route::get('/', function () {
     ]);
 });
 
-Route::get('/dashboard', function () {
-    return Inertia::render('Dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::middleware(['auth', 'verified'])->group(function () {
+    Route::get('/dashboard', function () {
+        return Inertia::render('Dashboard');
+    })->name('dashboard');
+    
+    Route::get('/calendar', function () {
+        return Inertia::render('Calendar');
+    })->name('calendar');
 
-Route::get('/calendar', function () {
-    return Inertia::render('Calendar');
-})->middleware(['auth', 'verified'])->name('calendar');
+    Route::get('/user-profile', function () {
+        return Inertia::render('UserProfile');
+    })->name('user-profile');
 
-Route::get('/user-profile', function () {
-    return Inertia::render('UserProfile');
-})->middleware(['auth', 'verified'])->name('user-profile');
-
-Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    Route::prefix('form')->name('form.')
+        ->group(function () {
+            Route::get('elements', function () {
+                return Inertia::render('FormElements');
+            })->name('elements');
+            Route::get('layout', function () {
+                return Inertia::render('FormLayout');
+            })->name('layout');
+        });
+    
+    Route::prefix('profile')->name('profile.')
+        ->group(function () {
+            Route::get('/profile', [ProfileController::class, 'edit'])->name('edit');
+            Route::patch('/profile', [ProfileController::class, 'update'])->name('update');
+            Route::delete('/profile', [ProfileController::class, 'destroy'])->name('destroy');
+        });
 });
 
 require __DIR__.'/auth.php';

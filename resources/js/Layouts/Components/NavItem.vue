@@ -17,12 +17,16 @@ const classes = computed(() =>
 );
 
 const hasActiveChild = computed(() => {
-    function hasActiveItem(items) {
-        return items.some(item => item.active || hasActiveItem(item.children));
+    function checkRouteMatch(items) {
+        return items.some(item =>
+            item.routeName && route().current(item.routeName) ||
+            item.children && checkRouteMatch(item.children)
+        );
     }
 
-    return hasActiveItem(props.item.children);
+    return checkRouteMatch(props.item.children);
 });
+
 </script>
 <template>
     <Link v-if="!item.children.length" :href="item.href"
@@ -48,20 +52,21 @@ const hasActiveChild = computed(() => {
         :default-open="hasActiveChild"
     >
         <DisclosureButton
-        :class="[
-            'group flex w-full items-center rounded-md py-2 px-3 text-left text-sm',
-            'hover:bg-gray-100',
-            open ? 'font-semibold text-gray-800' : 'font-medium text-gray-600',
-        ]"
+            :class="[
+                'group flex w-full items-center rounded-md py-2 px-3 text-left text-sm',
+                hasActiveChild
+                    ? 'font-semibold text-brand-500 bg-brand-50'
+                    : 'hover:bg-gray-100 font-medium text-gray-600'
+            ]"
         >
         <component
             :class="[
-            'mr-2 h-6 w-6 shrink-0 group-hover:text-gray-600',
-            open ? 'text-gray-600' : 'text-gray-400',
+                'mr-2 h-6 w-6 shrink-0',
+                hasActiveChild ? 'text-brand-500' : (open ? 'text-gray-600' : 'text-gray-400')
             ]"
             :is="item.icon"
             v-if="item.icon"
-        ></component>
+        />
         <span class="flex-1" v-if="!isCollapsed">{{ item.label }}</span>
         <ChevronDownIcon
             :class="[
@@ -75,7 +80,10 @@ const hasActiveChild = computed(() => {
         <DisclosurePanel class="ml-4">
         <NavItem
             v-for="child in item.children"
+            v-if="!isCollapsed"
             :item="child"
+            :key="child.label"
+            :active="route().current(child.routeName)"
         />
         </DisclosurePanel>
     </Disclosure>
