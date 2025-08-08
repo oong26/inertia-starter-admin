@@ -37,6 +37,16 @@ Route::middleware(['auth', 'verified'])->group(function () {
             })->name('layout');
         });
 
+    Route::prefix('tables')->name('tables.')
+        ->group(function () {
+            Route::get('basic', function () {
+                return Inertia::render('BasicTable');
+            })->name('basic');
+            Route::get('datatable', function () {
+                return Inertia::render('DataTable');
+            })->name('datatable');
+        });
+
     Route::prefix('page')->name('page.')
         ->group(function () {
             Route::get('blank', function () {

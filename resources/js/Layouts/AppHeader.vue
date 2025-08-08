@@ -43,12 +43,12 @@
     <header class="sticky top-0 flex w-full bg-white border-gray-200 z-99999 dark:border-gray-800 dark:bg-gray-900 xl:border-b">
         <div class="flex flex-col items-center justify-between grow xl:flex-row xl:px-6">
             <div class="flex items-center justify-between w-full gap-2 px-3 py-3 border-b border-gray-200 dark:border-gray-800 sm:gap-4 xl:justify-normal xl:border-b-0 xl:px-0 lg:py-4">
-                <button @click="toggleSidebar" class="flex items-center justify-center w-10 h-10 text-gray-500 border-gray-200 rounded-lg z-99999 dark:border-gray-800 dark:text-gray-400 lg:h-11 lg:w-11 lg:border">
+                <button @click="toggleSidebar" class="flex items-center justify-center w-10 h-10 text-gray-500 border-gray-200 rounded-lg z-99999 dark:border-gray-800 dark:text-gray-400 lg:h-11 lg:w-11 lg:border" aria-label="Toggle Sidebar Button">
                     <Bars3CenterLeftIcon class="w-6 h-6 fill-gray-500 dark:fill-gray-400" />
                 </button>
-                <a aria-current="page" href="/" class="router-link-active router-link-exact-active xl:hidden">
-                    <img class="dark:hidden" src="/images/logo/logo.svg" alt="Logo">
-                    <img class="hidden dark:block" src="/images/logo/logo-dark.svg" alt="Logo">
+                <a aria-current="page" href="/dashboard" class="router-link-active router-link-exact-active xl:hidden">
+                    <img class="dark:hidden" src="https://vue-demo.tailadmin.com/images/logo/logo.svg" alt="Logo">
+                    <img class="hidden dark:block" src="https://vue-demo.tailadmin.com/images/logo/logo-dark.svg" alt="Logo">
                 </a>
                 <button class="flex items-center justify-center w-10 h-10 text-gray-700 rounded-lg z-99999 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-800 xl:hidden">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -73,12 +73,14 @@
             </div>
             <div class="hidden items-center justify-between w-full gap-4 px-5 py-4 shadow-theme-md xl:flex xl:justify-end xl:px-0 xl:shadow-none">
                 <div class="flex items-center gap-2 2xsm:gap-3">
-                    <button class="relative flex items-center justify-center text-gray-500 transition-colors bg-white border border-gray-200 rounded-full hover:text-dark-900 h-11 w-11 hover:bg-gray-100 hover:text-gray-700 dark:border-gray-800 dark:bg-gray-900 dark:text-gray-400 dark:hover:bg-gray-800 dark:hover:text-white">
+                    <button class="relative flex items-center justify-center text-gray-500 transition-colors bg-white border border-gray-200 rounded-full hover:text-dark-900 h-11 w-11 hover:bg-gray-100 hover:text-gray-700 dark:border-gray-800 dark:bg-gray-900 dark:text-gray-400 dark:hover:bg-gray-800 dark:hover:text-white"
+                        aria-label="Toggle Theme Button">
                         <MoonIconOutlined class="w-6 h-6 dark:block" />
                         <MoonIcon class="w-6 h-6 hidden dark:block" />
                     </button>
                     <div class="relative">
-                        <button @click="toggleNotification" class="relative flex items-center justify-center text-gray-500 transition-colors bg-white border border-gray-200 rounded-full hover:text-dark-900 h-11 w-11 hover:bg-gray-100 hover:text-gray-700 dark:border-gray-800 dark:bg-gray-900 dark:text-gray-400 dark:hover:bg-gray-800 dark:hover:text-white">
+                        <button @click="toggleNotification" class="relative flex items-center justify-center text-gray-500 transition-colors bg-white border border-gray-200 rounded-full hover:text-dark-900 h-11 w-11 hover:bg-gray-100 hover:text-gray-700 dark:border-gray-800 dark:bg-gray-900 dark:text-gray-400 dark:hover:bg-gray-800 dark:hover:text-white"
+                            aria-label="Notification Button">
                             <span class="flex absolute right-0 top-0.5 z-1 h-2 w-2 rounded-full bg-orange-400">
                                 <span class="absolute inline-flex w-full h-full bg-orange-400 rounded-full opacity-75 -z-1 animate-ping"></span>
                             </span>
