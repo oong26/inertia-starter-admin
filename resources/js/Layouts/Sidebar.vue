@@ -1,6 +1,6 @@
 <script setup>
 import NavItem from './Components/NavItem.vue';
-import {RectangleGroupIcon, CalendarIcon, DocumentTextIcon, PhotoIcon, UserCircleIcon} from "@heroicons/vue/24/outline";
+import {RectangleGroupIcon, CalendarIcon, DocumentTextIcon, DocumentIcon, UserCircleIcon} from "@heroicons/vue/24/outline";
 import { inject } from 'vue';
 
 const navItems = [
@@ -14,14 +14,15 @@ const navItems = [
         ], icon: DocumentTextIcon
     },
     {
-        href: "#", routeName: null, label: "Media", children: [
-            { href: "#", routeName: null, label: "Library", children: [], icon: null },
-            {
-                href: "#", routeName: null, label: "Add new", children: [
-                    { href: "#", routeName: null, label: "Third level", children: [], icon: null },
-                ], icon: null
-            },
-        ], icon: PhotoIcon
+        href: "#", routeName: 'page.', label: "Pages", children: [
+            { href: route('page.blank'), routeName: 'page.blank', label: "Blank Page", children: [], icon: null },
+            { href: route('page.not-found'), routeName: 'page.not-found', label: "404 Page", children: [], icon: null },
+            { href: route('page.error'), routeName: 'page.error', label: "500 Page", children: [], icon: null },
+            { href: route('page.service-unavailable'), routeName: 'page.service-unavailable', label: "503 Page", children: [], icon: null },
+            { href: route('page.coming-soon'), routeName: 'page.coming-soon', label: "Coming Soon Page", children: [], icon: null },
+            { href: route('page.maintenance'), routeName: 'page.maintenance', label: "Maintenance Page", children: [], icon: null },
+            { href: route('page.success'), routeName: 'page.success', label: "Success Page", children: [], icon: null },
+        ], icon: DocumentIcon
     },
 ];
 

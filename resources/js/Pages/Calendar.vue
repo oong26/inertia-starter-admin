@@ -150,6 +150,16 @@
     })
 </script>
 
+<style>
+    .fc-button-group {
+        gap: calc(.25rem * 2);
+    }
+    .fc-button-group button {
+        margin-top: 4px !important;
+        margin-bottom: 4px !important;
+    }
+</style>
+
 <template>
     <Head title="Calendar" />
     <AuthenticatedLayout>
