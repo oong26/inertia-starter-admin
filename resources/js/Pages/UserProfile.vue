@@ -4,9 +4,11 @@ import PageBreadcrumb from '@/Components/PageBreadcrumb.vue';
 import ProfileCard from './Profile/Partials/ProfileCard.vue';
 import PersonalInfoCard from './Profile/Partials/PersonalInfoCard.vue';
 import AddressCard from './Profile/Partials/AddressCard.vue';
+import { Head } from '@inertiajs/vue3';
 </script>
 
 <template>
+    <Head title="User Profile" />
     <AuthenticatedLayout>
         <div>
             <PageBreadcrumb pageTitle="User Profile" />

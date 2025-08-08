@@ -62,7 +62,7 @@ const hasActiveChild = computed(() => {
         <component
             :class="[
                 'mr-2 h-6 w-6 shrink-0',
-                hasActiveChild ? 'text-brand-500' : (open ? 'text-gray-600' : 'text-gray-400')
+                hasActiveChild ? 'text-brand-500' : 'text-gray-600'
             ]"
             :is="item.icon"
             v-if="item.icon"

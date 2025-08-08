@@ -12,6 +12,7 @@
     import timeGridPlugin from '@fullcalendar/timegrid'
     import interactionPlugin from '@fullcalendar/interaction'
     import Modal from '@/Components/Modal.vue';
+    import { Head } from '@inertiajs/vue3';
 
     const calendarRef = ref(null)
     const isOpen = ref(false)
@@ -150,6 +151,7 @@
 </script>
 
 <template>
+    <Head title="Calendar" />
     <AuthenticatedLayout>
         <PageBreadcrumb :pageTitle="currentPageTitle" />
         <div class="rounded-2xl border border-gray-200 bg-white dark:border-gray-800 dark:bg-white/[0.03]">
